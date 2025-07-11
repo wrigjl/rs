@@ -311,7 +311,7 @@ async def addcourse(
     if not basecourse:
         basecourse = click.prompt("Base Course: ")
     bookrec = await fetch_library_book(basecourse)
-    if bookrec.build_system is None:
+    if bookrec is None or bookrec.build_system is None:
         click.echo(f"{basecourse} Not Found: Build the corresponding base course first!")
         exit(1)
     done = False
